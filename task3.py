@@ -14,14 +14,67 @@ w.title("sample")
 c = tk.Canvas(width=550,height=450,background="#cccccc",bd="2")
 c.pack()
 
+img = tk.PhotoImage(file="assets/win.png")
+img2 = tk.PhotoImage(file="assets/winb.png")
+wim = c.create_image(200,100,image=img)
 
 rec = c.create_rectangle(50,50,80,80,fill="#aa0000")
 
+def update():
+
+    if wim.image()==img2: 
+        ig = img
+    else: 
+        ig = img2
+
+    c.itemconfig(wim,image=ig)
 
 def keyPress(e):
+
+    if e.keysym == 'Left':
+        if (c.coords(rec))[0] == 5:
+            print('')
+        else:
+            print(e)
+            x=-5
+            y=0
+            c.move(rec,x,y)
+            print(c.coords(rec))
+        update()
+    if e.keysym == 'Right':
+        if (c.coords(rec))[0] == 520:
+            print('')
+        else:
+            print(e)
+            x=5
+            y=0
+            c.move(rec,x,y)
+            print(c.coords(rec))
+        update()
+    if e.keysym == 'Up':
+        if (c.coords(rec))[1] == 5:
+            print('')
+        else:
+            print(e)
+            x=0
+            y=-5
+            c.move(rec,x,y)
+            print(c.coords(rec))
+        update()
+    if e.keysym == 'Down':
+        if (c.coords(rec))[1] == 365:
+            print('')
+        else:
+            print(e)
+            x=0
+            y=5
+            c.move(rec,x,y)
+            print(c.coords(rec))
+        update()
+
     print(e)
     print(e.keycode, e.keysym, e.x, e.y)
-    
+
 w.bind("<Left>",keyPress)
 w.bind("<Right>",keyPress)
 w.bind("<Up>",keyPress)
