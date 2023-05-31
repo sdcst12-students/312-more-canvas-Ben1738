@@ -7,6 +7,8 @@
 
 import tkinter as tk
 
+tile=0
+
 w = tk.Tk()
 w.geometry("600x400")
 w.title("sample")
@@ -18,16 +20,23 @@ img = tk.PhotoImage(file="assets/win.png")
 img2 = tk.PhotoImage(file="assets/winb.png")
 wim = c.create_image(200,100,image=img)
 
-rec = c.create_rectangle(50,50,80,80,fill="#aa0000")
+rec = c.create_image(50,80,image=img)
 
 def update():
-
-    if wim.image()==img2: 
-        ig = img
-    else: 
+    #print(wim.image())
+    #if wim.image()==img2: 
+        #ig = img
+    #else: 
+    global tile
+    ig = None
+    tile +=1
+    tile = tile%2
+    if tile: 
         ig = img2
+    else: 
+        ig = img
 
-    c.itemconfig(wim,image=ig)
+    c.itemconfig(rec,image=ig)
 
 def keyPress(e):
 
