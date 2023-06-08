@@ -16,9 +16,9 @@ w.title("sample")
 c = tk.Canvas(width=550,height=450,background="#cccccc",bd="2")
 c.pack()
 
-img = tk.PhotoImage(file="assets/win.png")
-img2 = tk.PhotoImage(file="assets/winb.png")
-wim = c.create_image(200,100,image=img)
+img = tk.PhotoImage(file="angryangry.png")
+img2 = tk.PhotoImage(file="angryanoy.png")
+#wim = c.create_image(200,100,image=img)
 
 rec = c.create_image(50,80,image=img)
 
